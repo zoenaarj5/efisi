@@ -47,10 +47,10 @@ const Module = class {
 		let sxsz=document.getElementsByName("success");
 		const sxs=sxsz[0];
 		sxs.addEventListener("change",function(){
-		updateSuccessValue();
+			updateSuccessValue();
 	  // You are allowed to add extra methods and properties to this class
-	  });
-	  
+			});
+		lt.onchange();
 	}
 	 static updateSuccessValue(){
 		 console.log("Updating success value...");
@@ -63,6 +63,11 @@ const Module = class {
 				  let elt=document.getElementsByName("success");
 				  elt=elt[0];
 				  elt.setAttribute("value",os.SUCCESS);
+				  let op=document.getElementsByClassName("output");
+				  op=op[0];
+				  let jsoncom=JSON.stringify({status:os.K_OPPO_STATUS,success:os.SUCCESS});
+				  console.log("jsoncom:"+jsoncom);
+					op.innerHTML=jsoncom;
 				  return;
 			  }
 		  });
